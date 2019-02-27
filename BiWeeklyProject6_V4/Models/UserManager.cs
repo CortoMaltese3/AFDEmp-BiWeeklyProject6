@@ -42,5 +42,11 @@ namespace BiWeeklyProject6_V4.Models
         {
             return _db.Users.Any(u => u.Username == username);
         }
+
+        //public IEnumerable<User> Users()
+        //{
+        //    List<User> _users = new List<User>();
+        //    return _users;
+        //}
     }
 }
