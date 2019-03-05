@@ -19,12 +19,5 @@ namespace BiWeeklyProject6_V4.Controllers
 
             return View();
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Contact";
-
-            return View();
-        }
     }
 }

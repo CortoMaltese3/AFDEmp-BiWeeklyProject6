@@ -173,6 +173,10 @@
     <Compile Include="Migrations\201902271753303_SecondMigration.Designer.cs">
       <DependentUpon>201902271753303_SecondMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903050909146_ThirdMigration.cs" />
+    <Compile Include="Migrations\201903050909146_ThirdMigration.Designer.cs">
+      <DependentUpon>201903050909146_ThirdMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentManager.cs" />
@@ -217,7 +221,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
@@ -232,6 +235,8 @@
     <Content Include="Views\Documents\Details.cshtml" />
     <Content Include="Views\Documents\Edit.cshtml" />
     <Content Include="Views\Documents\Index.cshtml" />
+    <Content Include="Views\Login\About.cshtml" />
+    <Content Include="Views\Users\NotRegisteredIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902271753303_SecondMigration.resx">
       <DependentUpon>201902271753303_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903050909146_ThirdMigration.resx">
+      <DependentUpon>201903050909146_ThirdMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

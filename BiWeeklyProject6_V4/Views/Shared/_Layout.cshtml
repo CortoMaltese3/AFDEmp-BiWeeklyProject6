@@ -22,8 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>                    
                 </ul>
                 @Html.Partial("_LoginPartial")
                 @Html.Partial("_UserPartial")
@@ -33,7 +32,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer @*style="position:fixed; bottom:0*@">
+        <footer @*style="position:fixed; bottom:0*@ ">
             <p>&copy; @DateTime.Now.Year - CB6 - Bi-Weekly Project 6</p>
         </footer>
     </div>

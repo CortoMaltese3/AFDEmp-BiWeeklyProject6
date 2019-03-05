@@ -10,6 +10,7 @@ using BiWeeklyProject6_V4.Models;
 
 namespace BiWeeklyProject6_V4.Controllers
 {
+    //[Authorize(Roles = "Manager")]
     public class UsersController : Controller
     {
         private ProjectDbContext db = new ProjectDbContext();
@@ -17,8 +18,73 @@ namespace BiWeeklyProject6_V4.Controllers
         // GET: Users
         public ActionResult Index()
         {
+
             return View(db.Users.ToList());
         }
+
+        // GET: Users
+        public ActionResult NotRegisteredIndex()
+        {
+
+            return View(db.Users.Where(user => user.IsRegistered == false).ToList());
+        }
+
+
+        //public ActionResult SetRegisteredUserToActive(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+
+        //    User user = db.Users.Find(id);
+
+        //    if (user == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    return View(user);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult SetRegisteredUserToActive(User user)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        user.IsRegistered = true;
+        //        db.Entry(user).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("NotRegisteredIndex");
+        //    }
+
+        //    return View(user);
+        //}
+
+        //[HttpPost]
+        public ActionResult SetRegisteredUserToActive(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            User user = db.Users.Find(id);
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            user.IsRegistered = true;
+            
+            //db.Entry(user).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("SetRegisteredUserToActive", "Users");            
+        }
+
 
         // GET: Users/Details/5
         public ActionResult Details(int? id)
@@ -52,7 +118,7 @@ namespace BiWeeklyProject6_V4.Controllers
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(user);
@@ -112,7 +178,7 @@ namespace BiWeeklyProject6_V4.Controllers
             User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
