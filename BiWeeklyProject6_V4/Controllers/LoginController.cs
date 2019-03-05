@@ -20,7 +20,7 @@ namespace BiWeeklyProject6_V4.Controllers
         public ActionResult Login(User user)
         {
             UserManager manager = new UserManager();
-            var loggedInUser = manager.Login(user.Username, user.Password);
+            var loggedInUser = manager.Login(user.Username, user.Password, user.IsRegistered);
 
             if (loggedInUser != null)
             {

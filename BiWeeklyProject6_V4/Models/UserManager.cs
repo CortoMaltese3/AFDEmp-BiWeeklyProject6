@@ -13,9 +13,9 @@ namespace BiWeeklyProject6_V4.Models
         //private List<User> _users = new List<User>();        
         ProjectDbContext _db = new ProjectDbContext();
 
-        public User Login(string username, string password)
+        public User Login(string username, string password, bool isRegistered)
         {           
-            var loggedInUser = _db.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            var loggedInUser = _db.Users.FirstOrDefault(u => u.Username == username && u.Password == password && u.IsRegistered == true);
             if (loggedInUser != null)
             {
                 var claims = new List<Claim>(new[]

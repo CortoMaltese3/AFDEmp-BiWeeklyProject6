@@ -15,9 +15,25 @@ namespace BiWeeklyProject6_V4.Controllers
         private ProjectDbContext db = new ProjectDbContext();
 
         // GET: Documents
-        public ActionResult Index()
+        public ActionResult Index(User user)
         {
-            return View(db.Documents.ToList());
+            if (user.UserRole == UserRoles.Architect)
+            {
+                return View(db.Documents.Where(doc => doc.UserRoleAssignedTo == UserRoles.Architect).ToList());
+            }
+            else if (user.UserRole == UserRoles.Programmer)
+            {
+                return View(db.Documents.Where(doc => doc.UserRoleAssignedTo == UserRoles.Programmer).ToList());
+            }
+            else if (user.UserRole == UserRoles.Tester)
+            {
+                return View(db.Documents.Where(doc => doc.UserRoleAssignedTo == UserRoles.Tester).ToList());
+            }
+            else if (user.UserRole == UserRoles.Analyst)
+            {
+                return View(db.Documents.Where(doc => doc.UserRoleAssignedTo == UserRoles.Analyst).ToList());
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Documents/Details/5
