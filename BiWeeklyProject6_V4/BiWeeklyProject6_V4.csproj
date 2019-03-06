@@ -177,6 +177,14 @@
     <Compile Include="Migrations\201903050909146_ThirdMigration.Designer.cs">
       <DependentUpon>201903050909146_ThirdMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903051837138_FourthMigration.cs" />
+    <Compile Include="Migrations\201903051837138_FourthMigration.Designer.cs">
+      <DependentUpon>201903051837138_FourthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903060745266_FigthMigration.cs" />
+    <Compile Include="Migrations\201903060745266_FigthMigration.Designer.cs">
+      <DependentUpon>201903060745266_FigthMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentManager.cs" />
@@ -265,6 +273,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903050909146_ThirdMigration.resx">
       <DependentUpon>201903050909146_ThirdMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903051837138_FourthMigration.resx">
+      <DependentUpon>201903051837138_FourthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903060745266_FigthMigration.resx">
+      <DependentUpon>201903060745266_FigthMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

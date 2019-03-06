@@ -7,6 +7,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BiWeeklyProject6_V4.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using System.Collections.Generic;
+using System.Security.Claims;
+
+
+
+
 
 namespace BiWeeklyProject6_V4.Controllers
 {
@@ -14,22 +22,25 @@ namespace BiWeeklyProject6_V4.Controllers
     {
         private ProjectDbContext db = new ProjectDbContext();
 
+
         // GET: Documents
-        public ActionResult Index(User user)
+        public ActionResult Index()
         {
-            if (user.UserRole == UserRoles.Architect)
+            // HttpContext.User.IsInRole("Architect");
+
+            if (HttpContext.User.IsInRole(UserRoles.Architect.ToString()))
             {
                 return View(db.Documents.Where(doc => doc.UserRoleAssignedTo == UserRoles.Architect).ToList());
             }
-            else if (user.UserRole == UserRoles.Programmer)
+            else if (HttpContext.User.IsInRole(UserRoles.Programmer.ToString()))
             {
                 return View(db.Documents.Where(doc => doc.UserRoleAssignedTo == UserRoles.Programmer).ToList());
             }
-            else if (user.UserRole == UserRoles.Tester)
+            else if (HttpContext.User.IsInRole(UserRoles.Tester.ToString()))
             {
                 return View(db.Documents.Where(doc => doc.UserRoleAssignedTo == UserRoles.Tester).ToList());
             }
-            else if (user.UserRole == UserRoles.Analyst)
+            else if (HttpContext.User.IsInRole(UserRoles.Analyst.ToString()))
             {
                 return View(db.Documents.Where(doc => doc.UserRoleAssignedTo == UserRoles.Analyst).ToList());
             }

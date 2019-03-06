@@ -15,9 +15,12 @@ namespace BiWeeklyProject6_V4.Models
         public string Title { get; set; }
 
         [Required]
+        [Display(Name = "Subject")]
         public string Body { get; set; }
 
         [Required]
+        [Display(Name = "Assigned to")]
         public UserRoles UserRoleAssignedTo { get; set; }
+
     }
 }

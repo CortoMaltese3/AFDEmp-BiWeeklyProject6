@@ -11,11 +11,11 @@ namespace BiWeeklyProject6_V4.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Invalid Username")]
+        [MaxLength(50)]        
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Invalid Password")]
         [MaxLength(50)]          
         public string Password { get; set; }
 
